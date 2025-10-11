@@ -6,87 +6,128 @@
     <title>Coffee Delivery</title>
     <link rel="shortcut icon" href="./image/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="js/script.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./image/logo.png" alt="Logo" style="height: 30px; margin-right: 10px;">
+                Coffee Delivery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Cardápio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4">Coffee Delivery ☕</h1>
+            <p class="lead">Escolha seu café favorito e receba no conforto de sua casa!</p>
+        </div>
+    </header>
+
     <div class="container mt-4">
-        <h1 class="text-center text-primary">Coffee Delivery ☕</h1>
-        <p class="text-center text-muted">Escolha seu café favorito e receba no conforto de sua casa!</p>
-
         <!-- Barra de Pesquisa e Filtros -->
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" id="search-bar" class="form-control" placeholder="Pesquise pelo nome do café...">
-            </div>
-            <div class="col-md-6">
-                <select id="filter-price" class="form-control">
-                    <option value="">Filtrar por Preço</option>
-                    <option value="5">Até R$ 5,00</option>
-                    <option value="7">Até R$ 7,00</option>
-                    <option value="10">Até R$ 10,00</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row mt-4" id="coffee-list">
-            <!-- Os cafés serão inseridos aqui pelo JavaScript -->
-        </div>
-
-        <h2 class="mt-4 text-secondary">🛒 Carrinho de Compras</h2>
-        <div class="cart-container">
-            <ul id="cart" class="list-group">
-                <!-- Itens do carrinho -->
-            </ul>
-            <div class="d-flex justify-content-between align-items-center mt-3">
-                <h4 class="text-success">Total: <span id="total-price">R$ 0,00</span></h4>
-                <button class="btn btn-danger" onclick="clearCart()">Esvaziar Carrinho</button>
-                <button class="btn btn-success" onclick="openModal()">Finalizar Pedido</button>
-            </div>
-        </div>
-
-        <!-- Modal de Confirmação de Pedido -->
-        <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="checkoutModalLabel">Confirme seu Pedido</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="deliveryAddress" class="form-label">Endereço de Entrega</label>
-                            <input type="text" class="form-control" id="deliveryAddress" placeholder="Digite seu endereço">
-                        </div>
-                        <div class="mb-3">
-                            <label for="paymentMethod" class="form-label">Método de Pagamento</label>
-                            <select class="form-select" id="paymentMethod">
-                                <option value="Dinheiro">Dinheiro</option>
-                                <option value="Cartão">Cartão</option>
-                                <option value="PIX">PIX</option>
-                            </select>
-                        </div>
-                        <p><strong>Total:</strong> <span id="modal-total"></span></p>
-                        <p><strong>Data:</strong> <span id="modal-date"></span></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary" onclick="finalizeOrder()">Confirmar Pedido</button>
-                    </div>
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto">
+                <div class="input-group">
+                    <input type="text" id="search-bar" class="form-control form-control-lg" placeholder="Pesquise pelo nome do café...">
+                    <select id="filter-price" class="form-select form-select-lg" style="max-width: 200px;">
+                        <option value="">Filtrar por Preço</option>
+                        <option value="5">Até R$ 5,00</option>
+                        <option value="7">Até R$ 7,00</option>
+                        <option value="10">Até R$ 10,00</option>
+                    </select>
                 </div>
             </div>
         </div>
 
-        <!-- Chat de Suporte -->
-        <button id="supportButton" class="btn btn-info btn-lg position-fixed bottom-0 end-0 m-4" onclick="openChat()">💬 Suporte</button>
+        <div class="row mt-4 g-4" id="coffee-list">
+            <!-- Os cafés serão inseridos aqui pelo JavaScript -->
+        </div>
+
+        <h2 class="section-title mt-5">🛒 Carrinho de Compras</h2>
+        <div class="cart-container">
+            <ul id="cart" class="list-group list-group-flush">
+                <!-- Itens do carrinho -->
+            </ul>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <h4 class="text-success mb-0">Total: <span id="total-price">R$ 0,00</span></h4>
+                <div>
+                    <button class="btn btn-outline-danger" onclick="clearCart()">Esvaziar Carrinho</button>
+                    <button class="btn btn-success" onclick="openModal()">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Histórico de Pedidos -->
-        <div class="mt-4">
-            <h2 class="text-secondary">📜 Histórico de Pedidos</h2>
-            <ul id="order-history" class="list-group">
-                <!-- Histórico de pedidos será inserido pelo JavaScript -->
-            </ul>
+        <div class="mt-5">
+            <h2 class="section-title">📜 Histórico de Pedidos</h2>
+            <div class="history-container">
+                <ul id="order-history" class="list-group list-group-flush">
+                    <!-- Histórico de pedidos será inserido pelo JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Coffee Delivery. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante de Suporte -->
+    <button id="supportButton" class="btn btn-lg position-fixed bottom-0 end-0 m-4" onclick="openChat()">💬</button>
+
+    <!-- Todos os Modals e Toasts permanecem os mesmos -->
+
+    <!-- Modal de Confirmação de Pedido -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Confirme seu Pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="deliveryAddress" class="form-label">Endereço de Entrega</label>
+                        <input type="text" class="form-control" id="deliveryAddress" placeholder="Digite seu endereço">
+                    </div>
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Método de Pagamento</label>
+                        <select class="form-select" id="paymentMethod">
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Cartão">Cartão</option>
+                            <option value="PIX">PIX</option>
+                        </select>
+                    </div>
+                    <p><strong>Total:</strong> <span id="modal-total"></span></p>
+                    <p><strong>Data:</strong> <span id="modal-date"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="finalizeOrder()">Confirmar Pedido</button>
+                </div>
+            </div>
         </div>
     </div>
 

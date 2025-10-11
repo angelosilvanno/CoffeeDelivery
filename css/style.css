@@ -1,127 +1,136 @@
-body {
-    background-color: #f8f9fa;
+:root {
+    --primary-color: #6f4e37; 
+    --secondary-color: #f5f0e1; 
+    --dark-color: #3c2f2f; 
+    --accent-color: #c8a2c8; 
 }
 
-.card {
-    transition: transform 0.3s;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
 
-.card:hover {
-    transform: scale(1.05);
-}
+        /* Cabeçalho e Navegação */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .navbar-brand {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        .nav-link {
+            font-weight: 400;
+            color: var(--dark-color);
+        }
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
 
-.cart-container {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+        /* Seção Principal (Hero) */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0;
+            background-color: transparent;
+        }
+        .hero-section .display-4 {
+            font-weight: 700;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+        }
+        .hero-section .lead {
+            color: var(--dark-color);
+            font-size: 1.25rem;
+        }
 
-.modal-body input {
-    margin-bottom: 10px;
-}
+        /* Formulários */
+        .form-control, .form-select {
+            border-radius: 0.5rem;
+            border: 1px solid #ddd;
+            padding: 0.75rem 1rem;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.25);
+        }
 
-.btn-share {
-    margin-top: 10px;
-}
+        /* Títulos de Seção */
+        .section-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
 
-#supportButton {
-    z-index: 10;
-}
+        /* Cartão de Café (será gerado via JS) */
+        .card.coffee-card {
+            border: none;
+            border-radius: 0.75rem;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .card.coffee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
 
-/* Estilos para o chat */
-.chat-body .message {
-    padding: 8px 12px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-    word-break: break-word;
-}
+        /* Carrinho e Histórico */
+        .cart-container, .history-container {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .list-group-item {
+            border: none;
+        }
 
-.chat-body .message.user {
-    background-color: #DCF8C6;
-    align-self: flex-end;
-    margin-left: auto;
-}
+        /* Botões */
+        .btn {
+            border-radius: 0.5rem;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .btn-success {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-success:hover {
+            background-color: #5a3f2b;
+            border-color: #5a3f2b;
+        }
+        #supportButton {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        #supportButton:hover {
+            transform: scale(1.1);
+        }
 
-.chat-body .message.support {
-    background-color: #ECE5DD;
-    align-self: flex-start;
-    margin-right: auto;
-}
+        /* Modal */
+        .modal-content {
+            border-radius: 0.75rem;
+        }
+        .modal-header {
+            border-bottom: none;
+        }
+        .modal-footer {
+            border-top: none;
+        }
 
-.chat-body {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 575.98px) {
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    #supportButton {
-        bottom: 10px;
-        right: 10px;
-        font-size: 1rem;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-3 {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-3 h4 {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-3 .btn {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-    #supportButton {
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-3 {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-3 h4 {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-3 .btn {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    #supportButton {
-        bottom: 30px;
-        right: 30px;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    #supportButton {
-        bottom: 40px;
-        right: 40px;
-    }
-}
-
-@media (min-width: 1200px) {
-    #supportButton {
-        bottom: 40px;
-        right: 40px;
-    }
-}
+        /* Rodapé */
+        footer {
+            background-color: #fff;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid #eee;
+        }
