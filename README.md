@@ -28,7 +28,7 @@ O **Coffee Delivery** é uma **landing page** desenvolvida para fornecer uma exp
 
 ## 👷 Autor  
 
-- **Ângelo Silvano**  - *Front-End Developer* - [angelodesenvolvedor](https://github.com/angelodesenvolvedor)  
+- **Ângelo Silvano**  - *Front-End Developer* - [angelosilvanno](https://github.com/angelosilvanno)  
 
 ## 📄 Licença  
 
